@@ -346,6 +346,7 @@ function trainPerceptron() {
   let initialWeights = [0.37454012, 0.95071431];
   let initialBais = 1.731993941811405;
   let epochs = 50;
+  let lines = [];
 
   for (let i = 0; i < epochs; i++) {
     [initialWeights, initialBais] = perceptron(
@@ -355,8 +356,13 @@ function trainPerceptron() {
       initialBais,
       0.01
     );
+    lines.push([
+      initialWeights[0] / initialWeights[1],
+      (-1 * initialBais) / initialWeights[1]
+    ]);
   }
   console.log(initialWeights, initialBais);
+  return lines;
 }
 
 // trainPerceptron();
