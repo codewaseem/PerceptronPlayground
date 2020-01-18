@@ -359,4 +359,4 @@ function trainPerceptron() {
   console.log(initialWeights, initialBais);
 }
 
-trainPerceptron();
+// trainPerceptron();

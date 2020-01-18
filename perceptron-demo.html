@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Perceptron Playground</title>
+    <script src="./chart.js"></script>
+    <script src="./perceptron.js"></script>
+  </head>
+  <body>
+    <canvas id="perceptron-chart" height="400px" width="400px"> </canvas>
+  </body>
+
+  <script>
+    var ctx = document.getElementById("perceptron-chart").getContext("2d");
+    var myBubbleChart = new Chart(ctx, {
+      type: "bubble",
+      data: {
+        labels: ["X1", "X2"],
+        datasets: [
+          {
+            backgroundColor: function(context) {
+              var index = context.dataIndex;
+              var value = context.dataset.data[index].side;
+              console.log(value);
+              return value > 0 ? "lightblue" : "red";
+            },
+            data: originalData.y.map((_, i) => {
+              return {
+                x: originalData.X1[i],
+                y: originalData.X2[i],
+                r: 5,
+                side: originalData.y[i]
+              };
+            })
+          }
+        ]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                min: -0.5,
+                max: 1.5
+              }
+            }
+          ],
+          xAxes: [
+            {
+              ticks: {
+                min: -0.5,
+                max: 1.5
+              }
+            }
+          ]
+        }
+      }
+    });
+  </script>
+</html>
