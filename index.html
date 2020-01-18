@@ -12,14 +12,15 @@
     <div style="height: 500px; width: 500px;margin:auto">
       <canvas id="perceptron-chart"> </canvas>
     </div>
+    <!-- <button onclick="drawLines()">Train Model</button> -->
   </body>
 
   <script>
     var ctx = document.getElementById("perceptron-chart").getContext("2d");
     var lines = trainPerceptron();
     var last_line = lines[lines.length - 1];
-    console.log(last_line);
-    var myBubbleChart = new Chart(ctx, {
+
+    var chart = new Chart(ctx, {
       type: "bubble",
       data: {
         labels: ["X1", "X2"],
@@ -39,18 +40,18 @@
                 side: originalData.y[i]
               };
             })
-          },
+          }
 
-          ...lines.map(line => {
-            return {
-              data: [
-                { x: line[0], y: 0, r: 1 },
-                { x: 0, y: line[1], r: 1 }
-              ],
-              fill: false,
-              type: "line"
-            };
-          })
+          // ...lines.map(line => {
+          //   return {
+          //     data: [
+          //       { x: line[0], y: 0, r: 1 },
+          //       { x: 0, y: line[1], r: 1 }
+          //     ],
+          //     fill: false,
+          //     type: "line"
+          //   };
+          // })
         ]
       },
       options: {
@@ -78,5 +79,23 @@
         }
       }
     });
+
+    // function drawLines() {
+    //   let points = chart.data.datasets[0];
+    //   chart.data.datasets = chart.data.datasets.slice(0, 1);
+    //   lines.forEach(line => {
+    //     setTimeout(() => {
+    //       chart.data.datasets.push({
+    //         data: [
+    //           { x: line[0], y: 0, r: 1 },
+    //           { x: 0, y: line[1], r: 1 }
+    //         ],
+    //         fill: false,
+    //         type: "line"
+    //       });
+    //       chart.update();
+    //     }, 100);
+    //   });
+    // }
   </script>
 </html>
