@@ -9,7 +9,9 @@
     <script src="./perceptron.js"></script>
   </head>
   <body>
-    <canvas id="perceptron-chart" height="400px" width="400px"> </canvas>
+    <div style="height: 500px; width: 500px;margin:auto">
+      <canvas id="perceptron-chart"> </canvas>
+    </div>
   </body>
 
   <script>
@@ -52,6 +54,7 @@
         ]
       },
       options: {
+        maintainAspectRatio: false,
         legend: {
           display: false
         },
