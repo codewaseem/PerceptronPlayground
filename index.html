@@ -40,18 +40,18 @@
                 side: originalData.y[i]
               };
             })
-          }
+          },
 
-          // ...lines.map(line => {
-          //   return {
-          //     data: [
-          //       { x: line[0], y: 0, r: 1 },
-          //       { x: 0, y: line[1], r: 1 }
-          //     ],
-          //     fill: false,
-          //     type: "line"
-          //   };
-          // })
+          ...lines.map(line => {
+            return {
+              data: [
+                { x: line[0], y: 0, r: 1 },
+                { x: 0, y: line[1], r: 1 }
+              ],
+              fill: false,
+              type: "line"
+            };
+          })
         ]
       },
       options: {
